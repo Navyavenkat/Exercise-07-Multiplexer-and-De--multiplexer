@@ -49,6 +49,18 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 ### Procedure
 /* write all the steps invloved */
 
+1. Open Quartus II and select new project .
+   Open the new file as verilog.
+
+2.  Module Declaration. Module should have the file name.
+
+3. Input-Output Delecaration.
+
+4. Use wire to define the functionality of logic circuits.
+
+5. End the module.
+
+
 
 
 ### PROGRAM 
@@ -57,7 +69,36 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 Developed by: 
 RegisterNumber:  
 */
+MULTIPLXER
+```
+module mux(i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+wire p,q,r,s,s0c,s1c;
+not(s0c,s0);
+not(s1c,s1);
+and(p,s0c,s1c,i0);
+and(q,s0c,s1,i1);
+and(r,s0,s1c,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule
 
+DE MULTIPLXER
+
+module demux(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c,s1c;
+nor(s0c,s0);
+nor(s1c,s1);
+and(y0,i,s0c,s1c);
+and(y1,i,s0c,s1);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
+
+```
 
 
 
@@ -65,24 +106,48 @@ RegisterNumber:
 
 ### RTL LOGIC  
 
+MULTIPLXER
 
+![GITHUB LOGO](MU.png)
 
+DE MULTIPLXER
 
-
-
+![GITHUB LOGO](DEM.png)
 
 
 ### TIMING DIGRAMS  
 
+MULTIPLXER
+
+![GITHUB LOGO](i0.png)
+
+![GITHUB LOGO](i1.png)
+
+![GITHUB LOGO](i2.png)
+
+![GITHUB LOGO](i3.png)
 
 
+
+
+DEMULTIPLXER
+
+![GITHUB LOGO](DMT.png)
 
 
 ### TRUTH TABLE 
 
+MULTIPLXER
 
+![GITHUB LOGO](T1.png)
+
+DE MULTIPLXER
+
+![GITHUB LOGO](T2.png)
 
 
 
 
 ### RESULTS 
+
+ Hence the 4 X1 multiplexer and 1X4 de multiplexer has been implemented using verilog and outputs are validated.
